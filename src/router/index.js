@@ -134,6 +134,17 @@ const routes = [
                 ]
             }
         ]
+    },
+    {
+        path: '/manage',
+        name: '/Manage',
+        component: ()=> import('../components/manage/Manage.vue')
+    }
+    ,
+    {
+        path: '/login',
+        name: 'Login',
+        component: ()=> import('../components/manage/Login.vue')
     }
 ]
 

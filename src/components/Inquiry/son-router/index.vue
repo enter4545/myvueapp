@@ -2,13 +2,13 @@
     <div>
          <el-form :model="form" label-width="120px" :rules='rules' ref="ruleFormRef" status-icon>
              <el-form-item label="产品名称:" class="my-lable">
-               <el-input  v-model="form.name" placeholder="请输入您需要询价的产品名称" />
+               <el-input  v-model="form.product" placeholder="请输入您需要询价的产品名称" />
              </el-form-item>
-             <el-form-item label="联系人:"  prop="customer" >
-               <el-input v-model="form.customer" placeholder="请输入您的姓名"/>
+             <el-form-item label="联系人:"  prop="name" >
+               <el-input v-model="form.name" placeholder="请输入您的姓名"/>
              </el-form-item>
-             <el-form-item label="电话:"  prop="phone"   >
-               <el-input v-model="form.phone" placeholder="请输入您的联系方式"/>
+             <el-form-item label="电话:"  prop="tel"   >
+               <el-input v-model="form.tel" placeholder="请输入您的联系方式"/>
              </el-form-item>
              <el-form-item label="邮箱:">
                <el-input v-model="form.email" placeholder="请输入您的邮箱地址"/>
@@ -17,7 +17,7 @@
                <el-input v-model="form.address" placeholder="请输入您的地址"/>
              </el-form-item>
              <el-form-item class="custom-textarea" label="留言内容:">
-               <el-input :rows="5" style="width: 550px" resize="none" v-model="form.text" type="textarea" placeholder="请输入您的留言内容"/>
+               <el-input :rows="5" style="width: 550px" resize="none" v-model="form.liuyan" type="textarea" placeholder="请输入您的留言内容"/>
              </el-form-item>
              <el-form-item style="margin-top:30px;">
                <el-button style="width: 116px;height: 34px;background-color:#337ab7;border-color: #2e6da4;color: #fff;" type="primary" @click="onSubmit(ruleFormRef)">提交</el-button>
@@ -30,23 +30,24 @@
 <script setup>
 import {ref,reactive} from 'vue'
 import {ElMessage} from 'element-plus'
+import {postClients} from '../../../api/login.js'
 
 const ruleFormRef = ref()
 
 const form = ref({
+    product: '',
     name: '',
-    customer: '',
-    phone: '',
+    tel: '',
     email: '',
     adress: '',
-    text: ''
+    liuyan: ''
 })
 
 const rules = ref({
-  customer:[
+  name:[
     {required:true,message:'请输入您的姓名'}
   ],
-  phone: [
+  tel: [
     {required:true,message:'请输入您的联系方式'},
     { pattern: /^1[3456789]\d{9}$/, message: '请输入有效的电话号码' }
   ]
@@ -54,15 +55,17 @@ const rules = ref({
 
 const onSubmit = async (formEl)=>{
   console.log(formEl)
+  console.log(form.value)
     if(!formEl) return
     await formEl.validate((valid, fields)=>{
       if(valid){
-        console.log(form.value.customer ,getTime())
+        console.log(form.value ,getTime())
         console.log("submit")
         ElMessage({
             message: '提交成功',
             type: 'success',
         })
+        postClients(form.value)
         formEl.resetFields()
       }else{
         console.log('error submit', fields)

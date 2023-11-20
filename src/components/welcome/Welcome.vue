@@ -1,11 +1,18 @@
 <template>
     <div class="p-wel" v-if="!isMobile">
-        <div class="carousel">
-    <el-carousel trigger="click" arrow="always" height="74vh">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3 class="small justify-center" text="2xl">{{ item }}</h3>
-      </el-carousel-item>
-    </el-carousel>
+        <div class="carousel" >
+            <el-carousel 
+            ref='elCar'
+            trigger="click" arrow="always" 
+            :height="CarHight + 'px'"
+            >
+            
+              <el-carousel-item v-for="item in 4" :key="item">
+                <div class="back-image" >
+                   <img ref='imgHeigth' src="../../assets/images/20210915174805_331.png" alt="">
+                </div>
+              </el-carousel-item>
+            </el-carousel>
         </div>
         <div class="group1 auto">
            <div class="search-group inner">
@@ -239,11 +246,17 @@
 </template>
 
 <script setup>
+import Back from '../zujian/Back.vue'
 import Pwel from "./move/m-wel.vue"
 import {ref, onMounted} from "vue"
 import {useRouter} from 'vue-router'
-
+// 轮播图高度
+const CarHight = ref(433)
+const elCar = ref(null)
+const imgHeigth = ref()
 const router = useRouter()
+
+console.log(elCar.value)
 
 const placeholder = ref('请输入关键词搜索')
 const activeId = ref(2)
@@ -274,15 +287,31 @@ onMounted(()=>{
         )
 })
 
+window.addEventListener('resize', ()=>{
+    CarHight.value = elCar.value.$el.offsetWidth * 0.338
+    console.log(elCar.value.$el.offsetWidth)
+    // console.log(elCar.value.$el.offsetWidth)
+    console.log(imgHeigth.value[0].width)
+
+})
+
 </script>
 
 <style lang="scss" scoped>
 // 电脑端样式
 .p-wel{
     .carousel{
-    .el-carousel{
-        min-height: 433px;
+
+    .back-image{
+    // height: 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    width: 100%;
+    img{
+        width: 100%;
+        height: 100%;
     }
+}
 
 .el-carousel__item h3 {
   // color: #475669;

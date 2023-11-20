@@ -14,7 +14,7 @@ const toliuyan = ()=>{
 
 <style lang="scss" scoped>
 .back-image{
-    height: 74vh;
+    // height: 100%;
     background-repeat: no-repeat;
     margin: 0 auto;
     width: 100%;

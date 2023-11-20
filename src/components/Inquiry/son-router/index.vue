@@ -40,7 +40,8 @@ const form = ref({
     tel: '',
     email: '',
     adress: '',
-    liuyan: ''
+    liuyan: '',
+    date:''
 })
 
 const rules = ref({
@@ -61,12 +62,24 @@ const onSubmit = async (formEl)=>{
       if(valid){
         console.log(form.value ,getTime())
         console.log("submit")
+
+        form.value.date = getTime()
+        postClients(form.value)
+        formEl.resetFields()
+        form.value = {
+          product: '',
+          name: '',
+          tel: '',
+          email: '',
+          adress: '',
+          liuyan: ''
+       }
+
         ElMessage({
             message: '提交成功',
             type: 'success',
         })
-        postClients(form.value)
-        formEl.resetFields()
+
       }else{
         console.log('error submit', fields)
       }
@@ -83,9 +96,12 @@ const getTime = ()=>{
   const arr = ['星期天','星期一','星期二','星期三','星期四','星期五','星期六']
   const day = date.getDay()
   const hour = date.getHours()
-  const minute = date.getMinutes();
-  const second = date.getSeconds();
-  return year + ' ' + month + ' ' + dates + ' ' + arr[day] + ' ' + hour + ':' + minute + ':' + second
+  const minute = date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes();
+  const second = date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds();
+  // 带星期几
+  // return year + ' ' + month + ' ' + dates + ' ' + arr[day] + ' ' + hour + ':' + minute + ':' + second
+  // 不带周几
+  return year + '-' + month + '-' + dates + ' ' + hour + ':' + minute + ':' + second
 }
 
 console.log(getTime())
@@ -94,6 +110,14 @@ console.log(getTime())
 const resetForm = (formEl)=>{
   if(!formEl) return
   formEl.resetFields()
+  form.value = {
+          product: '',
+          name: '',
+          tel: '',
+          email: '',
+          adress: '',
+          liuyan: ''
+      }
 }
 
 </script>

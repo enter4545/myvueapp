@@ -15,7 +15,7 @@
          </el-form-item>
          
          <el-form-item label="密码" prop="password">
-           <el-input v-model="ruleForm.password" placeholder="请输入密码" />
+           <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码" />
          </el-form-item>
 
          <el-form-item label-width="152px" style="padding:10px;">
@@ -65,8 +65,9 @@ const submitForm = async (formEl)=>{
     //请求后台登录接口，并传递参数
     await login(ruleForm.value).then((res, req)=>{
         console.log(res, "响应内容")
-        // localStorage.setItem('token',res.data.data.userInfo.token)
-        //跳转后台
+        //将接收的token保存在本地
+        localStorage.setItem('token',res.data.token)
+        // 跳转后台
         if(res.data.status == 0){
             router.push('/manage')
         }else{

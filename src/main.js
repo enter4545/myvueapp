@@ -15,17 +15,17 @@ import router from "./router/index.js"
 console.log(localStorage.getItem('token'))
 
 // 路由拦截
-// router.beforeEach(async (to, from) => {
-//     if (
-//       // 检查用户是否已登录
-//       localStorage.getItem('token') != '123456' &&
-//       // ❗️ 避免无限重定向
-//       to.name == '/Manage'
-//     ) {
-//       // 将用户重定向到登录页面
-//       return { name: 'Login' }
-//     }
-//   })
+router.beforeEach(async (to, from) => {
+    if (
+      // make sure the user is authenticated
+      !localStorage.getItem('token') &&
+      // ❗️ Avoid an infinite redirect
+      to.name !== 'Login'
+    ) {
+      // redirect the user to the login page
+      return { name: 'Login' }
+    }
+  })
 
 // createApp(App).mount('#app')
 const app = createApp(App)

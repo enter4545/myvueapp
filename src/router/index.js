@@ -138,7 +138,20 @@ const routes = [
     {
         path: '/manage',
         name: '/Manage',
-        component: ()=> import('../components/manage/Manage.vue')
+        redirect: 'clients',
+        component: () => import('../components/manage/Manage.vue'),
+        children: [
+            {
+                path: '/clients',
+                name: 'Clients',
+                component: ()=> import('../components/manage/son-router/clientsList.vue')
+            },
+            {
+                path: '/artUpdata',
+                name: 'ArtUpdata',
+                component: ()=> import('../components/manage/son-router/article/artUpdata.vue')
+            }
+        ]
     }
     ,
     {

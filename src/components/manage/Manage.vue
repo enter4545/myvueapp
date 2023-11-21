@@ -8,66 +8,63 @@
             <span class="isIcon" @click="isColl" ></span>
             <span class="name" >六六顺交通</span>
            </div>
+           <!-- 客户信息列表 -->
            <div class="menu-out">
-            <div class="menu1">
-            <span class="isIcon" @click="isColl" ></span>
-            <span class="name" >客户列表</span>
+              <div class="menu1">
+                 <span class="isIcon" @click="isColl" ></span>
+                 <span class="name" @click="goRoute(1)"  >客户列表</span>
+              </div>
+
+              <div class="menu1">
+                 <span class="isIcon article" @click="isColl" ></span>
+                 <span class="name" @click="artIsChange" >文章内容</span>
+                 <ul class="article-in" :style="{height: artIs ? '0' : '90px',marginTop: artIs ? '0' : '10px'}">
+                    <li>文章列表</li>
+                    <li>文章类别</li>
+                    <li @click="goRoute(2)">发布文章</li>
+                 </ul>
+              </div>
+
+              <div class="menu1">
+                 <span class="isIcon article" @click="isColl" ></span>
+                 <span class="name" >文章内容</span>
+              </div>
            </div>
-           </div>
+
       </el-aside>
       <!-- 右边内容 -->
         <el-main>
+          <router-view></router-view>
+
             <!-- <div class="main-head"></div> -->
-            <el-table :data="tableData" stripe style="width: 100%">
-              <el-table-column prop="name" label="名字" width="90" />
-              <el-table-column prop="tel" label="电话" width="140" />
-              <el-table-column prop="product" label="产品" width="170" />
-              <el-table-column prop="date" label="日期" width="170" />
-              <el-table-column prop="email" label="邮箱" />
-              <el-table-column prop="address" label="地址" />
-              <el-table-column prop="liuyan" label="留言" />
-            </el-table>
+
+            <!-- 富文本编辑 -->
+            <!-- <fuwenben></fuwenben> -->
         </el-main>
     </el-container>
+
   </div>
 
 </template>
 
 <script setup>
 import {ref, onMounted} from 'vue'
-import {getClientList} from '../../api/login.js'
+
 import {ElMessage} from 'element-plus'
 import {useRouter} from 'vue-router'
 import Menu from './components/menu.vue'
+import fuwenben from './components/fuwenben.vue'
+
+
 const router = useRouter()
 
-const tableData = ref([])
 
+// 文章展开，收缩
+const artIs = ref(true)
 
 // console.log(headers)
 
-const getList = async ()=>{
-  const token = localStorage.getItem('token')
-  const headers = {
-      "Authorization": `Bearer ${token}`
-  }
-  console.log("faqi")
-  const res = await getClientList(headers)
 
-  console.log(res)
-  tableData.value = res.data.results
-  // console.log(res, '管理页')
-  if(res.data.status != 0){
-    ElMessage.error(res.data.message)
-    // router.push('/login')
-  }
-
-}
-
-onMounted(()=>{
-  getList()
-  console.log('发起请求')
-})
 
 import {
   Document,
@@ -79,6 +76,7 @@ import {
 
 const isCollapse = ref(false)
 
+//侧边栏收起函数
 const  isColl = ()=>{
   isCollapse.value = !isCollapse.value
 }
@@ -87,6 +85,22 @@ const handleOpen = (key, keyPath) => {
 }
 const handleClose = (key, keyPath) => {
   console.log(key, keyPath)
+}
+//文章下拉菜单函数
+const artIsChange = ()=>{
+  artIs.value = !artIs.value
+  console.log("文章")
+}
+
+const goRoute = (path)=>{
+   switch(path){
+      case 1 :
+        router.push('/clients')
+        break;
+      case 2 :
+        router.push('/artUpdata')
+        break;
+   }
 }
 
 
@@ -130,10 +144,7 @@ const handleClose = (key, keyPath) => {
     }
   }
   .menu-out{
-    &:hover{
-      background-color: #666;
-      cursor: pointer;
-    }
+    
     .menu1{
     margin: 30px 30px 10px 20px;
     padding: 10px;
@@ -144,6 +155,7 @@ const handleClose = (key, keyPath) => {
     color: #fff;
     overflow: hidden;
     line-height: 20px;
+    overflow: hidden;
 
     .isIcon{
       position: relative;
@@ -156,22 +168,47 @@ const handleClose = (key, keyPath) => {
       background-position: center center;
       background-repeat: no-repeat;
     }
+    .article{
+      background-image: url('../../assets/icon/文章管理.png');
+      background-size: 20px 20px;
+    }
     .name{
       position: absolute;
       left: 40px;
       top: 10px;
       white-space: nowrap;
+      &:hover{
+            // background-color: #666;
+            cursor: pointer;
+      }
+    }
+    .article-in{
+      // width: ;
+      // height: 0;
+      box-sizing: border-box;
+      // margin-top: 10px ;
+      margin-left: 30px;
+      text-align: center;
+      overflow: hidden;
+      transition: all 1s ease;
+      li{
+        &:hover{
+            background-color: #666;
+            cursor: pointer;
+        }
+        padding: 5px;
+        list-style: none;
+        white-space: nowrap;
+      }
     }
   }
   }
 }
-   .el-main{
+.el-main {
+  min-width: 800px;
+  min-height: 556px;
+}
 
-      .el-table{
-        padding: 10px;
-        height: calc(100vh - 40px);
-      }
-   }
 .side-in{
     text-align: center;
     padding: 30px 10px 10px 10px;

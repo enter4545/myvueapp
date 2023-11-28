@@ -1,48 +1,26 @@
 <template>
     <div>
-        <ul>
-            <li>
-                <div class="newtitle"><h1>技术支持关于高速防撞缓冲车保养的几个建议</h1><div>2023-09-05 14:39:45</div></div>
-                <div class="info">高速防撞缓冲车的维护和保养是确保其正常运行和提供有效保护的能力的关键，接下来我们讲一下关于高速防撞缓冲车保养的几个建议。1. 外观清洁：定期清洗车辆外观，包括清除尘土、油污和杂物，以保持外观整洁，避免细菌繁殖和腐蚀。2. 车身漆面保护：定期给车身涂抹保护蜡或者车身保护剂，以保护车漆不受紫外线和污染物侵蚀，并减少划痕的可能性。3. 检查和维护灯光：定期检查车辆灯光的工作情况，确保灯泡正常工作，灯罩清洁，以确保良好的可见性和安全性。4. 制动系统维护：定期检查制动系统，包括制动盘、刹车片和制动液，确保其正常工作，以确保在必要时能够快速停车。</div>
-                <div class="more">
-                    <span>了解详情 +</span>
-                </div>
-            </li>
-            <li>
-                <div class="newtitle"><h1>关于高速防撞缓冲车保养的几个建议</h1><div>2023-09-05 14:39:45</div></div>
-                <div class="info">高速防撞缓冲车的维护和保养是确保其正常运行和提供有效保护的能力的关键，接下来我们讲一下关于高速防撞缓冲车保养的几个建议。1. 外观清洁：定期清洗车辆外观，包括清除尘土、油污和杂物，以保持外观整洁，避免细菌繁殖和腐蚀。2. 车身漆面保护：定期给车身涂抹保护蜡或者车身保护剂，以保护车漆不受紫外线和污染物侵蚀，并减少划痕的可能性。3. 检查和维护灯光：定期检查车辆灯光的工作情况，确保灯泡正常工作，灯罩清洁，以确保良好的可见性和安全性。4. 制动系统维护：定期检查制动系统，包括制动盘、刹车片和制动液，确保其正常工作，以确保在必要时能够快速停车。</div>
-                <div class="more">
-                    <span>了解详情 +</span>
-                </div>
-            </li>
-            <li>
-                <div class="newtitle"><h1>关于高速防撞缓冲车保养的几个建议</h1><div>2023-09-05 14:39:45</div></div>
-                <div class="info">高速防撞缓冲车的维护和保养是确保其正常运行和提供有效保护的能力的关键，接下来我们讲一下关于高速防撞缓冲车保养的几个建议。1. 外观清洁：定期清洗车辆外观，包括清除尘土、油污和杂物，以保持外观整洁，避免细菌繁殖和腐蚀。2. 车身漆面保护：定期给车身涂抹保护蜡或者车身保护剂，以保护车漆不受紫外线和污染物侵蚀，并减少划痕的可能性。3. 检查和维护灯光：定期检查车辆灯光的工作情况，确保灯泡正常工作，灯罩清洁，以确保良好的可见性和安全性。4. 制动系统维护：定期检查制动系统，包括制动盘、刹车片和制动液，确保其正常工作，以确保在必要时能够快速停车。</div>
-                <div class="more">
-                    <span>了解详情 +</span>
-                </div>
-            </li>
-            <li>
-                <div class="newtitle"><h1>关于高速防撞缓冲车保养的几个建议</h1><div>2023-09-05 14:39:45</div></div>
-                <div class="info">高速防撞缓冲车的维护和保养是确保其正常运行和提供有效保护的能力的关键，接下来我们讲一下关于高速防撞缓冲车保养的几个建议。1. 外观清洁：定期清洗车辆外观，包括清除尘土、油污和杂物，以保持外观整洁，避免细菌繁殖和腐蚀。2. 车身漆面保护：定期给车身涂抹保护蜡或者车身保护剂，以保护车漆不受紫外线和污染物侵蚀，并减少划痕的可能性。3. 检查和维护灯光：定期检查车辆灯光的工作情况，确保灯泡正常工作，灯罩清洁，以确保良好的可见性和安全性。4. 制动系统维护：定期检查制动系统，包括制动盘、刹车片和制动液，确保其正常工作，以确保在必要时能够快速停车。</div>
-                <div class="more">
-                    <span>了解详情 +</span>
-                </div>
-            </li>
-            <li>
-                <div class="newtitle"><h1>关于高速防撞缓冲车保养的几个建议</h1><div>2023-09-05 14:39:45</div></div>
-                <div class="info">高速防撞缓冲车的维护和保养是确保其正常运行和提供有效保护的能力的关键，接下来我们讲一下关于高速防撞缓冲车保养的几个建议。1. 外观清洁：定期清洗车辆外观，包括清除尘土、油污和杂物，以保持外观整洁，避免细菌繁殖和腐蚀。2. 车身漆面保护：定期给车身涂抹保护蜡或者车身保护剂，以保护车漆不受紫外线和污染物侵蚀，并减少划痕的可能性。3. 检查和维护灯光：定期检查车辆灯光的工作情况，确保灯泡正常工作，灯罩清洁，以确保良好的可见性和安全性。4. 制动系统维护：定期检查制动系统，包括制动盘、刹车片和制动液，确保其正常工作，以确保在必要时能够快速停车。</div>
+        <ul v-show="route.meta.showfather !== false">
+            <li @click="todetail(item.id)" v-for="item in artList" :key="item.id">
+                <div class="newtitle"><h1>{{item.title}}</h1><div>{{item.date}}</div></div>
+                <div class="info">{{item.content}}</div>
                 <div class="more">
                     <span>了解详情 +</span>
                 </div>
             </li>
         </ul>
+        <router-view></router-view>
     </div>
 </template>
 
 <script setup>
 import {ref, onMounted } from "vue"
-import {useRoute} from "vue-router"
+import {useRoute, useRouter} from "vue-router"
+import {getArticle} from '../../../api/article'
+
+const router = useRouter()
+
+const artList = ref()
 
 const route = useRoute()
 
@@ -55,12 +33,32 @@ for( let i=0; i<matched.length; i++){
     console.log(SonMsg.value)
 }
 
+// 跳转路由
+const todetail = (id)=>{
+    router.push( `/newsDetail/${id}` );
+}
+
+const getArtList = ()=>{
+    getArticle(2).then((res)=>{
+        console.log(res)
+        artList.value = res.data
+        for(let i = 0; i < artList.value.length; i++){
+            artList.value[i].content = artList.value[i].content.replace(/<[^>]*>/g, '');
+            artList.value[i].content = artList.value[i].content.replace(/&nbsp;/g, '');
+        }
+        console.log(res)
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
+
 const emit = defineEmits(['get-son'])
 const send =  ()=>{
     emit('get-son', SonMsg)
 }
 onMounted(()=>{
     send()
+    getArtList()
 })
 </script>
 

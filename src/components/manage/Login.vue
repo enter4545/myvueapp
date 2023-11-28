@@ -20,7 +20,7 @@
 
          <el-form-item label-width="152px" style="padding:10px;">
            <el-button type="primary" @click="submitForm(ruleFormRef)">
-             提交
+             登录
            </el-button>
            <el-button @click="resetForm(ruleFormRef)">重置</el-button>
          </el-form-item>

@@ -14,12 +14,12 @@ const toliuyan = ()=>{
 }
 
 const navList = [
-  {id:1,"title":'首页',router:"welcome"},
-  {id:2,"title":'公司简介',router:"introduce",children:[{id:1,title:'公司概况',router:'/intro'},{id:2,title:'公司荣誉',router:'/honor'}]},
-  {id:3,"title":'防撞车可租售',router:"product",children:[{id:1,title:'xx防撞车',router:'/two'},{id:2,title:'xxx防撞车',router:'/three'}]},
-  {id:4,"title":'行业资讯',router:"news",children:[{id:1,title:'公司新闻',router:'/compony'},{id:2,title:'行业资讯',router:'/industry'},{id:3,title:'技术支持',router:'/technical'}]},
-  {id:5,"title":'相关案列',router:"case",children:[{id:1,title:'施工案例',router:'/image'},{id:2,title:'视频案例',router:'/video'}]},
-  {id:6,"title":'联系我们',router:"contact",children:[{id:1,title:'联系我们',router:'contact'}]}
+  {id:1,"title":'首页',router:"/welcome"},
+  {id:2,"title":'公司简介',router:"/introduce",children:[{id:1,title:'公司概况',router:'/intro'},{id:2,title:'公司荣誉',router:'/honor'}]},
+  {id:3,"title":'防撞车可租售',router:"/product",children:[{id:1,title:'xx防撞车',router:'/two'},{id:2,title:'xxx防撞车',router:'/three'}]},
+  {id:4,"title":'行业资讯',router:"/news",children:[{id:1,title:'公司新闻',router:'/compony'},{id:2,title:'行业资讯',router:'/industry'},{id:3,title:'技术支持',router:'/technical'}]},
+  {id:5,"title":'相关案列',router:"/case",children:[{id:1,title:'施工案例',router:'/image'},{id:2,title:'视频案例',router:'/video'}]},
+  {id:6,"title":'联系我们',router:"/contact",children:[{id:1,title:'联系我们',router:'contact'}]}
 ]
 const dianji  = ()=>{
   console.log("11")

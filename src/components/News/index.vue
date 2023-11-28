@@ -8,13 +8,13 @@
                     <div class="title">新闻中心<span>/ news</span></div>
                     <div class="nav">
                         <router-link to="/compony">
-                            <div  class="nav-1">公司新闻<span></span></div>
+                            <div  :class="[route.name === '公司新闻' ? 'nav-1 nav-active' : 'nav-1']">公司新闻<span></span></div>
                         </router-link>
                        <router-link to="/industry">
-                            <div class="nav-2">行业资讯<span></span></div>
+                            <div :class="[route.name === '行业资讯' ? 'nav-1 nav-active' : 'nav-1']">行业资讯<span></span></div>
                        </router-link>
-                       <router-link to="technical">
-                            <div class="nav-2">技术支持<span></span></div>
+                       <router-link to="/technical">
+                            <div :class="[route.name === '技术支持' ? 'nav-active' : 'nav-2']">技术支持<span></span></div>
                        </router-link>
                         
                     </div>
@@ -40,6 +40,9 @@ import Hot from "../zujian/Hot.vue"
 import ContactUs from "../zujian/ContactUs.vue"
 import Mnews from "../zujian/MHeadNav.vue"
 import liuyan from '../zujian/liuyan.vue'
+import {useRoute} from 'vue-router'
+const route = useRoute()
+console.log((route.name === '公司新闻'), '新闻路由')
 
 const breadList = ref([])
 
@@ -118,6 +121,9 @@ onMounted(()=>{
 
                     border-bottom: 1px solid #eeeeee;
 
+                }
+                .nav-active{
+                    color: #c0091a;
                 }
             }
         }

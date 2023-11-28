@@ -13,27 +13,55 @@
 </template>
 
 <script setup>
+import { ElMessage } from 'element-plus'
 import {ref, onMounted} from 'vue'
 import {getClientList} from '../../../api/login'
+import {useRouter} from 'vue-router'
+const router = useRouter()
+const tableData = ref()
 
-//数据绑定
-const tableData = ref([])
-//请客户信息列表
-const getList = async ()=>{
+// //数据绑定
+// const tableData = ref([])
+// //请客户信息列表
+// const getList = async ()=>{
+//   const token = localStorage.getItem('token')
+//   const headers = {
+//       "Authorization": `Bearer ${token}`
+//   }
+//   console.log("faqi")
+//   const res = await getClientList(headers)
+
+//   console.log(res)
+//   tableData.value = res.data.results
+//   console.log(res, '管理页')
+//   if(res.data.status != 0){
+//     ElMessage.error(res.data.message)
+//     // router.push('/login')
+//   }
+
+// }
+
+const getList =  ()=>{
   const token = localStorage.getItem('token')
   const headers = {
       "Authorization": `Bearer ${token}`
   }
   console.log("faqi")
-  const res = await getClientList(headers)
+   getClientList(headers).then(res => {
+      tableData.value = res.data.results
+      console.log(res,'then')
+   }).catch(res =>{
+    console.log(res,'catch')
+      if(res.response.status == 401 || res.response.data == 'Token expired'){
+        ElMessage.error('token失效，请重新登录')
+        // router.push('/login')
+      }
+      if(res.data.status != 0 ){
+        ElMessage.error(res.data.message)
+        // router.push('/login')
+      }
+   })
 
-  console.log(res)
-  tableData.value = res.data.results
-  // console.log(res, '管理页')
-  if(res.data.status != 0){
-    ElMessage.error(res.data.message)
-    // router.push('/login')
-  }
 
 }
 

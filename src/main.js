@@ -16,11 +16,7 @@ console.log(localStorage.getItem('token'))
 
 // 路由拦截
 router.beforeEach(async (to, from) => {
-    if (
-      // make sure the user is authenticated
-      !localStorage.getItem('token') &&
-      // ❗️ Avoid an infinite redirect
-      to.name !== 'Login'
+    if (!localStorage.getItem('token') && (to.name === 'Clients' || to.name === 'ArtUpdata' || to.name === 'ArtList')
     ) {
       // redirect the user to the login page
       return { name: 'Login' }

@@ -77,17 +77,44 @@ const routes = [
                     {
                         path: '/compony',
                         name:"公司新闻",
-                        component: ()=> import('../components/News/son-router/Compony.vue')
+                        component: () => import('../components/News/son-router/Compony.vue'),
+                        children: [
+                            {
+                                path: '/newsDetail/:id',
+                                component: () => import('../components/News/G-son/index.vue'),
+                                meta:{
+                                    showfather: false
+                                 }
+                            }
+                        ]
                     },
                     {
                         path: '/industry',
                         name:"行业资讯",
-                        component: ()=> import('../components/News/son-router/Industry.vue')
+                        component: () => import('../components/News/son-router/Industry.vue'),
+                        children: [
+                            {
+                                path: '/newsDetail/:id',
+                                component: () => import('../components/News/G-son/index.vue'),
+                                meta:{
+                                    showfather: false
+                                 }
+                            }
+                        ]
                     },
                     {
                         path: '/technical',
                         name:"技术支持",
-                        component: ()=> import('../components/News/son-router/Technical.vue')
+                        component: () => import('../components/News/son-router/Technical.vue'),
+                        children: [
+                            {
+                                path: '/newsDetail/:id',
+                                component: () => import('../components/News/G-son/index.vue'),
+                                meta:{
+                                    showfather: false
+                                 }
+                            }
+                        ]
                     }
                 ]
             },
@@ -150,6 +177,21 @@ const routes = [
                 path: '/artUpdata',
                 name: 'ArtUpdata',
                 component: ()=> import('../components/manage/son-router/article/artUpdata.vue')
+            },
+            {
+                path: '/artList',
+                name: 'ArtList',
+                component: ()=> import('../components/manage/son-router/article/artList.vue')
+            },
+            {
+                path: '/imagesList',
+                name: 'ImagesList',
+                component: ()=> import('../components/manage/son-router/images/imgList.vue')
+            },
+            {
+                path: '/prolist',
+                name: 'Prolist',
+                component: ()=> import('../components/manage/son-router/product/proList.vue')
             }
         ]
     }

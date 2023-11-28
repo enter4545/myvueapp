@@ -3,18 +3,40 @@
         <div class="title">新闻资讯<span>/ news</span></div>
         <div class="nav">
             <ul>
-                <li><span>+</span> 防撞缓冲车什么牌子好？</li>
-                <li><span>+</span> 防撞缓冲车什么牌子好？</li>
-                <li><span>+</span> 防撞缓冲车什么牌子好？</li>
-                <li><span>+</span> 防撞缓冲车什么牌子好？</li>
-                <li><span>+</span> 防撞缓冲车什么牌子好？</li>
-                <li><span>+</span> 防撞缓冲车什么牌子好？</li>
+                <li @click="todetail(item.id)" v-for="item in dataList" :key="item.id"><span>+</span> {{item.title}}</li>
             </ul>
         </div>
     </div>
 </template>
 
 <script setup>
+import {ref, onMounted} from 'vue'
+import {getArticle} from '../../api/article'
+import {useRouter} from 'vue-router'
+const router = useRouter()
+const dataList = ref()
+
+//跳转路由
+const todetail = (id)=>{
+    router.push(`/newsDetail/${id}`)
+}
+
+
+//获取新闻列表
+const getList = ()=>{
+    
+    getArticle().then(res =>{
+        console.log(res, "新闻列表")
+        dataList.value = res.data
+        
+    }).catch(err =>{
+        console.log(err)
+    })
+}
+
+onMounted(()=>{
+    getList()
+})
 
 </script>
 
@@ -47,6 +69,9 @@
                         font-size: 14px;
                         line-height: 20px;
                         height: 20px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
                         &:hover{
                             cursor: pointer;
                             color: #bd0919;
